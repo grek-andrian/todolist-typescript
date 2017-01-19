@@ -3,6 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/// <reference path="node_modules/@types/jquery/index.d.ts"/>
 var Task = (function () {
     function Task(priority, title) {
         this.priority = priority;
@@ -37,14 +38,14 @@ var TaskFactory = (function () {
     return TaskFactory;
 }());
 var tasks = [];
-document.getElementById('btn-add').addEventListener('click', function (e) {
+$('#btn-add').click(function (e) {
     e.preventDefault();
-    var task = TaskFactory.getTask(Number(document.getElementById('task-priority')['value']), String(document.getElementById('task-title')['value']));
+    var task = TaskFactory.getTask(Number($('#task-priority').val()), $('#task-title').val());
     tasks.push(task);
     var domString = '';
     tasks.forEach(function (t) {
         domString += "<li>" + t.toString() + "</li>";
     });
-    document.getElementById('task-list').innerHTML = domString;
+    $('#task-list').html(domString);
 });
 //# sourceMappingURL=index.js.map

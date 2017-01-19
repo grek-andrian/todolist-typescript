@@ -1,0 +1,22 @@
+{
+  "name": "todolist-typescrypt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grek-andrian/todolist-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grek-andrian/todolist-typescript/issues"
+  },
+  "homepage": "https://github.com/grek-andrian/todolist-typescript#readme",
+  "devDependencies": {
+    "@types/jquery": "^2.0.39"
+  }
+}

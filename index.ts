@@ -1,3 +1,4 @@
+/// <reference path="node_modules/@types/jquery/index.d.ts"/>
 class Task {
     private priority: number;
     private title: string;
@@ -27,14 +28,13 @@ class TaskFactory {
 }
 
 let tasks: Task[] = [];
-document.getElementById('btn-add').addEventListener('click', e => {
+$('#btn-add').click(function(e) {
     e.preventDefault();
-    const task = TaskFactory.getTask(Number(document.getElementById('task-priority')['value']),
-                          String(document.getElementById('task-title')['value']));
+    const task = TaskFactory.getTask(Number($('#task-priority').val()), $('#task-title').val());
     tasks.push(task);
     let domString = '';
     tasks.forEach(t => {
         domString += `<li>${t.toString()}</li>`;
     });
-    document.getElementById('task-list').innerHTML = domString;
+    $('#task-list').html(domString);
 });
