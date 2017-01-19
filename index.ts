@@ -10,10 +10,26 @@ class Task {
     }
 }
 
+class HighPriorityTask extends Task {
+    toString(): string {
+        return `<strong>${super.toString()}</strong>`
+    }
+}
+
+class TaskFactory {
+    static getTask(priority: number, title: string): Task {
+        if (priority === 1) {
+            return new HighPriorityTask(priority, title);
+        } else {
+            return new Task(priority, title);
+        }
+    }
+}
+
 let tasks: Task[] = [];
 document.getElementById('btn-add').addEventListener('click', e => {
     e.preventDefault();
-    const task = new Task(Number(document.getElementById('task-priority')['value']),
+    const task = TaskFactory.getTask(Number(document.getElementById('task-priority')['value']),
                           String(document.getElementById('task-title')['value']));
     tasks.push(task);
     let domString = '';
